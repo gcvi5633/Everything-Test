@@ -6,6 +6,7 @@ public class touch : MonoBehaviour
 {
     public LayerMask touchInputmask;
     public Transform ya;
+    public bool usemouse = false;
 
     private List<GameObject> touchList = new List<GameObject>();
     private GameObject[] touchold;
@@ -13,11 +14,13 @@ public class touch : MonoBehaviour
 
     void Update()
     {
+        //if(usemouse)
 #if UNITY_EDITOR
         mouse();
 #endif
+        //else
         touch1();
-    }    
+    }
 
     void touch1()
     {
@@ -37,11 +40,11 @@ public class touch : MonoBehaviour
                     GameObject recipient = hit.transform.gameObject;
                     touchList.Add(recipient);
 
-                    if (hit.transform.gameObject.tag == "ya")
+                    /*if (hit.transform.gameObject.CompareTag("ya"))
                     {
                         var pos = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                         Instantiate(ya, pos, ya.transform.rotation);
-                    }
+                    }*/
 
                     if (touch.phase == TouchPhase.Began)
                     {
@@ -81,18 +84,18 @@ public class touch : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 
-            if (Physics.Raycast(ray, out hit/*, touchInputmask*/))
+            if (Physics.Raycast(ray, out hit, touchInputmask))
             {
                 GameObject recipient = hit.transform.gameObject;
                 touchList.Add(recipient);
 
-                if (hit.transform.gameObject.tag == "ya")
-                {         
+                /*if (hit.transform.gameObject.tag == "ya")
+                {
                     var pos = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                     Instantiate(ya, pos, ya.transform.rotation);
-                }
-                    
-                /*if (Input.GetMouseButtonDown(0))
+                }*/
+
+                if (Input.GetMouseButtonDown(0))
                 {
                     recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
@@ -103,7 +106,7 @@ public class touch : MonoBehaviour
                 if (Input.GetMouseButton(0))
                 {
                     recipient.SendMessage("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
-                }*/
+                }
             }
 
             foreach (GameObject g in touchold)

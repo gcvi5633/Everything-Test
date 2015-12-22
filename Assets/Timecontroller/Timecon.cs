@@ -26,9 +26,7 @@ public class Timecon : MonoBehaviour {
         sec = (int)tc;//將 int 型態的 tc設成 sec
         min = sec / 60;
         sec = sec % 60;
-        if (sec % 60 < 10)
-            time.text = min.ToString() + ":0" + sec.ToString();
-        else
-            time.text = min.ToString() + ":" + sec.ToString();
+        //使用 ToString("D2") 的方法來使輸出的時間數字保持有兩位數位置
+        time.text = min.ToString("D2") + ":" + sec.ToString("D2");
     }
 }
