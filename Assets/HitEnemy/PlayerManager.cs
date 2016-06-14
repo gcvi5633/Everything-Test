@@ -44,6 +44,10 @@ public class PlayerManager : MonoBehaviour {
         else
             atkCollider.SetActive(false);
     }
-
+    void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("sword")) {
+            anim.Play("DAMAGED00");
+        }
+    }
 
 }

@@ -89,6 +89,7 @@ public class TextBoxManager : MonoBehaviour {
     }
 
     public void EnableTextBox() {
+		Time.timeScale = 0;
         textBox.SetActive(true);
         isActive = true;
         if(stopPlayerMovement) {
@@ -99,6 +100,7 @@ public class TextBoxManager : MonoBehaviour {
 
     public void DisableTextBox()
     {
+		Time.timeScale = 1;
         textBox.SetActive(false);
         isActive = false;
         player.canMove = true;
