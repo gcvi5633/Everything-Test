@@ -67,9 +67,10 @@ public class Inventory : MonoBehaviour {
     }
 
     bool CheckItemInInventory(Item item) {
-        for(int i=0;i< items.Count; i++) 
-            if(items[i].ID == item.ID) 
+        for (int i = 0; i < items.Count; i++) {
+            if (items[i].ID == item.ID)
                 return true;
+        }
         return false;
     }
 }

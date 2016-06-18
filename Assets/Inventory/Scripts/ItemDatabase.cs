@@ -24,9 +24,16 @@ public class ItemDatabase : MonoBehaviour {
     }
     void ConstructItemDatabase() {
         for(int i = 0; i < itemData.Count; i++) {
-            database.Add(new Item((int)itemData[i]["id"], itemData[i]["title"].ToString(), (int)itemData[i]["value"],
-                (int)itemData[i]["stats"]["power"], (int)itemData[i]["stats"]["defence"], (int)itemData[i]["stats"]["vitality"],
-                itemData[i]["description"].ToString(), (bool)itemData[i]["stackable"], (int)itemData[i]["rarity"],
+            database.Add(new Item(
+                (int)itemData[i]["id"],
+                itemData[i]["title"].ToString(),
+                (int)itemData[i]["value"],
+                (int)itemData[i]["stats"]["power"],
+                (int)itemData[i]["stats"]["defence"],
+                (int)itemData[i]["stats"]["vitality"],
+                itemData[i]["description"].ToString(),
+                (bool)itemData[i]["stackable"],
+                (int)itemData[i]["rarity"],
                 itemData[i]["slug"].ToString()));
         }
     }

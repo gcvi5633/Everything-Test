@@ -4,12 +4,12 @@ using System.Collections;
 
 public class loadingScreen : MonoBehaviour {
 
-    public string levelToLoad;
+    public string levelToLoad     ;
 
-    public GameObject background;
-    public GameObject textObject;
-	public Text text;
-    public GameObject progressBar;
+    public GameObject background  ;
+    public GameObject textObject  ;
+	public Text       text        ;
+    public GameObject progressBar ;
 
     //設一個進度讀取值，這個的值在 0 到 1 之間
     private float loadProgress = 0;
@@ -31,10 +31,10 @@ public class loadingScreen : MonoBehaviour {
 
     IEnumerator DisplayLoadingScreen(string level)
     {
-		int toProgress = 0;
+		int toProgress = 0         ;
         //將進度讀取介面打開
-        background.SetActive(true);
-		textObject.SetActive(true);
+        background.SetActive(true) ;
+		textObject.SetActive(true) ;
         progressBar.SetActive(true);
 
         /*progressBar.transform.localScale = new Vector3(loadProgress, progressBar.transform.localScale.y, progressBar.transform.localScale.z);
